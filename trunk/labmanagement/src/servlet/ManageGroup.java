@@ -33,7 +33,7 @@ public class ManageGroup extends HttpServlet {
 	/**
 	 *
 	 * This method is called when a form has its tag value method equals to get.
-	 * 
+	 *  
 	 * @param request the request send by the client to the server
 	 * @param response the response send by the server to the client
 	 * @throws ServletException if an error occurred
