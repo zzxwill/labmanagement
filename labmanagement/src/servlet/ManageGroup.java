@@ -30,7 +30,7 @@ public class ManageGroup extends HttpServlet {
 		// Put your code here
 	 }
 
-	/** 
+	/**  
 	 * 
 	 * This method is called when a form has its tag value method equals to get.
 	 *  
