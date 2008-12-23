@@ -44,7 +44,6 @@ public class ManageGroup extends HttpServlet {
 
 		response.setContentType("text/html");
 		
-
 		String groupAdminID=request.getParameter("action");
 		System.out.print("groupAdminID"+groupAdminID);
 		//得到了组管理员的ID，查到他的组，然后，列出组员。
