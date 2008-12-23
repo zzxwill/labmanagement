@@ -17,6 +17,7 @@ public class ManageGroup extends HttpServlet {
 	/**
 	 * Constructor of the object.
 	 */
+	
 	public ManageGroup() {
 		super();
 	}
@@ -27,10 +28,9 @@ public class ManageGroup extends HttpServlet {
 	public void destroy() {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
-	}
+	 }
 
 	/**
-	 * The doGet method of the servlet. <br>
 	 *
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
@@ -85,20 +85,20 @@ public class ManageGroup extends HttpServlet {
 				
 			}
 			
-			ResultSet res2=null;
-			res2=stmt.executeQuery("select memID,memName from manageGroup where groupID='groupID' and memID!='groupAdminID';");
+//			ResultSet res2=null;
+//			res2=stmt.executeQuery("select memID,memName from manageGroup where groupID='groupID' and memID!='groupAdminID';");
 			
 			//查出在组长组的成员的id和姓名。
 			//应该跳到另外一个页面，并且将组长的id和memID传过去。
-			while(res2.next()){
+//			while(res2.next()){
 				
-			}
+//			}
 			
 			
 			
 			
-//			request.setAttribute("groupID", groupID);  
-//           getServletContext().getRequestDispatcher("/labmanagement/jsp/manageGroup.jsp").forward(request,   response);
+			request.setAttribute("groupID", groupID);  
+			getServletContext().getRequestDispatcher("/jsp/manageGroup.jsp").forward(request,   response);
 	  
 			
 	      res.close();
