@@ -20,7 +20,7 @@ public class ManageGroup extends HttpServlet {
 	
 	public ManageGroup() {
 		super();
-	}
+	} 
 
 	/**
 	 * Destruction of the servlet. <br>
