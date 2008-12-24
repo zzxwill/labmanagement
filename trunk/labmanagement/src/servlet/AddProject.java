@@ -49,14 +49,14 @@ public class AddProject extends HttpServlet {
 		try
 	    {
 	    String projectName=request.getParameter("projectName");
-	    System.out.println(projectName);
+//	    System.out.println(projectName);
 	    String projectCon=request.getParameter("projectCon");
 	    String projectPub=request.getParameter("projectPub");
 	    String deadline=request.getParameter("deadline");
-	    System.out.println(projectName);
-	    System.out.println(projectCon);
-	    System.out.println(projectPub);
-	    System.out.println(deadline);
+	    System.out.println("projectName:"+projectName);
+	    System.out.println("projectCon:"+projectCon);
+	    System.out.println("projectPub:"+projectPub);
+	    System.out.println("deadline:"+deadline);
 	      Connection conn=null;
 	      Statement stmt;
 	      ResultSet res = null;
@@ -79,11 +79,11 @@ public class AddProject extends HttpServlet {
 	  
 	  if(number==1){
 		  out.println("恭喜您，新任务添加成功！<br>");
-		  out.println("<a href='/labmanagement/jsp/employee.jsp'>返回</a>");
+		  out.println("<a href='/labmanagement/jsp/groupAdmin.jsp'>返回</a>");
 	  }
 	  else{
-		  out.println("对不起，新员工添加失败，请返回继续操作！");
-		   out.println("<a href='/labmanagement/jsp/employee.jsp'>返回公告管理页面</a>");
+		  out.println("对不起，新任务添加失败，请返回继续操作！");
+		   out.println("<a href='/labmanagement/jsp/groupAdmin.jsp'>返回</a>");
 	  }
 	  
 	      res.close();
@@ -93,7 +93,6 @@ public class AddProject extends HttpServlet {
 	    {
 	      System.out.println("Error : " + ex.toString());
 	    }
-		
 		out.print("    This is ");
 		out.print(this.getClass());
 		out.println(", using the GET method");

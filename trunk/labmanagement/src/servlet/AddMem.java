@@ -93,9 +93,7 @@ public class AddMem extends HttpServlet {
 //		String   sql= "select   cust_gp,sum(charge)   from   serv1   where   area   in   ( ' "+b[0]+ " ', ' "+b[1]+ ")   group   by   cust_gp "; 
 
 		
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
+		
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
