@@ -217,7 +217,7 @@ h3 {
 <font size=-1>
 <input type=hidden name=domains value="YOUR DOMAIN NAME"><br>
 <input type=radio name=sitesearch value=""> Google
-<input type=radio name=sitesearch value="http://zzxwill.blog.sohu.com/" checked>实验室管理系统
+<input type=radio name=sitesearch value="http://localhost:8080/labmanagement/jsp/index.jsp" checked>实验室管理系统
 </font>
 </td></tr></table>
 </form>
@@ -298,25 +298,26 @@ h3 {
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
-
+              int[] x=new int[100]; //信息ID
+              int i=0;
+              String[] inTi=new String[100];//信息标题
+              String[] inTm=new String[100];//发布时间
 		      while (res.next())
 		      {
-		    	out.print("<tr><td width=\"40%\" class=\"indl1\">");
-		    %>
-		   
-		    	<a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"><%=res.getString(2) %></td><td width="30%" align="right" class="indl1">
-		
-		    <%
-//		    	out.print(res.getString(3)+"</td><td width=\"50%\" align=\"right\" class=\"indl1\">");
-				out.print(res.getString(4)+"</td></tr>");
-//		        request.setAttribute("memID",   memID);   
-//		        getServletContext().getRequestDispatcher("/jsp/test.jsp").forward(request,   response); 
-//		        response.sendRedirect("http://localhost:8080/labmanagement/jsp/test.jsp") ;
-
-		        
-//		        out.println(res.getString(2));
-//		        out.println(res.getString(3));
-//		        out.println("恭喜您，公告更改成功！<br>");
+		        x[i]=res.getInt(1);
+		        inTi[i]=res.getString(2);
+		        inTm[i]=res.getString(4);
+		        i++;
+		      }
+		      for(i=0;x[i]!=0;i++){
+		  
+		      out.print("<tr><td width=40% class=indl1 >");
+		      System.out.print(x[i]);
+		      out.print("<a href='/labmanagement/jsp/info_detail.jsp?inid="+x[i]+"'>"+inTi[i]+"</a></td>");
+		      //request.setAttribute("inid",x[i] );
+		     // out.print("</a></td>");
+		      out.print("<td width=50% align=right class=indl1 >"+inTm[i]+"</td></tr>");
+		     
 		      }
 		      
 		  
@@ -483,15 +484,7 @@ h3 {
 
 	
 	%>
-																						<tr>
-																							<td width="70%" height="22" class="inddline">
-																								&#12539;
-																								<a href="/html/xiangmugaikuang/20080723/16.html">虚拟现实国家重点实验室概况</a>
-																							</td>
-																							<td width="30%" class="inddline">
-																								2008-07-23
-																							</td>
-																						</tr>
+																						
 																						
 <tr height="22">
 <td width="70%" class="indl1"><br></td>
@@ -524,7 +517,7 @@ h3 {
 																							<td width='60%'>
 																								任务列表
 																							</td>
-																							<td width='30%' align='right'>
+																							<td width='40%' align='right'>
 																								<a
 																									href="moreProject.jsp">
 																									<img height="14" src="/labmanagement/images/more.gif" width="43"
@@ -544,7 +537,7 @@ h3 {
 		    {
 		      Connection conn=null;
 		      Statement stmt;
-			  ResultSet res = null;
+		      ResultSet res = null;
 		      //加载Connector/J驱动
 		      //这一句也可写为：Class.forName("com.mysql.jdbc.Driver");
 		      Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -576,33 +569,27 @@ h3 {
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
-
+              int[] x=new int[100]; //信息ID
+              int i=0;
+              String[] inTi=new String[100];//信息标题
+              String[] inTm=new String[100];//发布时间
 		      while (res.next())
 		      {
-//		    	out.print("<tr><td width=\"20%\" class=\"indl1\">");
-//		    	out.print("["+res.getString(3)+"]"+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
-		   		
-		    %>
-		    <tr>
-				<td width="60%" style="height: 32px">&#12539;
-				 <a href="/labmanagement/project/<%=res.getString(5)%>/1.jsp?projectID=<%=res.getString(1) %>" target="_blank"><%=res.getString(2) %></a></td>
-				<td width="40%" align="left" style="height: 32px"><%=res.getString(4)%></td>
-			</tr>
-		   
-		    	<!--  a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"/><%=res.getString(2) %></td><td width="30%" align="right" class="indl1"-->
-		
-		    <%
-//		    	out.print(res.getString(3)+"</td><td width=\"50%\" align=\"right\" class=\"indl1\">");
-//				out.print(res.getString(4)+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
-//				out.print(res.getString(4)+"</td></tr>");
-//		        request.setAttribute("memID",   memID);   
-//		        getServletContext().getRequestDispatcher("/jsp/test.jsp").forward(request,   response); 
-//		        response.sendRedirect("http://localhost:8080/labmanagement/jsp/test.jsp") ;
-
-		        
-//		        out.println(res.getString(2));
-//		        out.println(res.getString(3));
-//		        out.println("恭喜您，公告更改成功！<br>");
+		        x[i]=res.getInt(1);
+		        inTi[i]=res.getString(2);
+		        inTm[i]=res.getString(4);
+		        i++;
+		      }
+		      for(i=0;x[i]!=0;i++){
+		  
+		      out.print("<tr><td width=40% class=indl1 >&#12539;");
+		 
+		      System.out.print(x[i]);
+		      out.print("<a href='/labmanagement/jsp/pro_detail.jsp?inid="+x[i]+"'>"+inTi[i]+"</a></td>");
+		      //request.setAttribute("inid",x[i] );
+		     // out.print("</a></td>");
+		      out.print("<td width=50% align=right class=indl1 >"+inTm[i]+"</td></tr>");
+		     
 		      }
 		      
 		  
@@ -616,19 +603,9 @@ h3 {
 		    }
 
 	
+	
 	%>
-																						<tr>
-																							<td width="60%" height="11" class="inddline">
-																								&#12539;
-																								<a href="/html/news/20080721/13.html"><b><font
-																										color='#CC0000'>招聘应用开发员2名</font>
-																								</b>
-																								</a>
-																							</td>
-																							<td width="40%" class="inddline">
-																								2008-07-21
-																							</td>
-																						</tr>
+																					
 																						
 																						
 																						

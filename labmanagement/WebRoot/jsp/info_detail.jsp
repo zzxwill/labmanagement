@@ -1,41 +1,41 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
 <%@ include file="head.jsp" %>
 <%@ page import="java.sql.*"  %>
-<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-	
-	<head>
-	<style type="text/css">
-.style1 {
-	text-align: center;
-}
-</style>
-	</head>
 
-	<body>
-	<table width="900" border="0" align="center" cellpadding="0"
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>详细信息</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <body>
+  <table width="900" border="0" align="center" cellpadding="0"
 				cellspacing="0" class="tbspan">
 				<tr>
 					<td width="880" background="/templets/img/31bg1.gif">
-						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">首页</a>
+						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">首页</a>| <a
+							href="/labmanagement/jsp/morePubInfo.jsp">公共信息</a>
 						</span> 
 					</td>
 				</tr>
 			</table>
-		<table width="600" border="0" align="center" cellpadding="0"
-				cellspacing="0" class="tbspan" style="height: 19px">
-				<tr>
-											<td width="85%" valign="top" style="padding-left: 6px"
-												colspan="2">
-												<table width="100%" border="0" cellspacing="1"
-													cellpadding="1" align="center">
-												<tr>
-													任务汇总 <br><br>
-												</tr>
-												
-												
-													
-		<%
-		try
+ 
+  <%  String   Inid=(String)request.getParameter("inid");
+       // out.print(abc);
+       
+       try
 		    {
 		      Connection conn=null;
 		      Statement stmt;
@@ -52,7 +52,7 @@
 //		      res = stmt.executeQuery("select * from notice");
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('developer','content','submitTime','deadline','rank','title')");
 //		  int number=stmt.executeUpdate("update notice set developer="+developer+",content='"+content+"',submitTime='"+strSubmitTime+"',deadline='"+strDeadline+"',rank="+rank+",title='"+title+"' where id='"+strID+"'");
-		  res=stmt.executeQuery("select * from project");
+		  res=stmt.executeQuery("select * from pubinfo where infoID='"+Inid+"'");
 //		      res=stmt.executeQuery("select * from labmem ");
 				  
 //		  out.print("添加的条数："+number);
@@ -71,26 +71,24 @@
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
-              int[] x=new int[100]; //信息ID
-              int i=0;
-              String[] inTi=new String[100];//信息标题
-              String[] inTm=new String[100];//发布时间
-		      while (res.next())
-		      {
-		        x[i]=res.getInt(1);
-		        inTi[i]=res.getString(2);
-		        inTm[i]=res.getString(4);
-		        i++;
-		      }
-		      for(i=0;x[i]!=0;i++){
+              //int[] x=new int[100]; //信息ID
+             //int i=0;
+              //String[] inTi=new String[100];//信息标题
+             // String[] inTm=new String[100];//发布时间
+		    while (res.next())
+		     { out.print("<table width=900 align=center border=0><tr><td align=center>");
+		       out.print("<h2>"+res.getString(2)+"</h2></td></tr>");
+		       out.print("<tr><td><p>"+res.getString(3)+"</p></td></tr>");
+		       out.print("<tr><td align=right>"+res.getString(4)+"</td></tr>");
+		       out.print("</table>");
+		        //x[i]=res.getInt(1);
+		       // inTi[i]=res.getString(2);
+		        //inTm[i]=res.getString(4);
+		        //i++;
+		     // }
+		     // for(i=0;x[i]!=0;i++){
 		  
-		      out.print("<tr><td width=40% class=indl1 >");
-		      System.out.print(x[i]);
-		      out.print("<a href='/labmanagement/jsp/pro_detail.jsp?inid="+x[i]+"'>"+inTi[i]+"</a></td>");
-		      //request.setAttribute("inid",x[i] );
-		     // out.print("</a></td>");
-		      out.print("<td width=50% align=right class=indl1 >"+inTm[i]+"</td></tr>");
-		     
+		      
 		      }
 		      
 		  
@@ -103,16 +101,7 @@
 		      System.out.println("Error : " + ex.toString());
 		    }
 
-	
-	
-	
 	%>
-			</table>
-		
-	</body>
+	
+  </body>
 </html>
-
-			
-			
-			
-

@@ -58,6 +58,44 @@
     <servlet-name>MoveProjectMemOut</servlet-name>
     <servlet-class>servlet.MoveProjectMemOut</servlet-class>
   </servlet>
+  
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangeGU</servlet-name>
+    <servlet-class>servlet.ChangeGU</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelGro</servlet-name>
+    <servlet-class>servlet.DelGro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewGro</servlet-name>
+    <servlet-class>servlet.NewGro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelInfo</servlet-name>
+    <servlet-class>servlet.DelInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewInfo</servlet-name>
+    <servlet-class>servlet.NewInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteResource</servlet-name>
+    <servlet-class>servlet.DeleteResource</servlet-class>
+  </servlet>
+
 
 
 
@@ -91,6 +129,31 @@
   <servlet-mapping>
     <servlet-name>MoveProjectMemOut</servlet-name>
     <url-pattern>/servlet/MoveProjectMemOut</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>ChangeGU</servlet-name>
+    <url-pattern>/servlet/ChangeGU</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelGro</servlet-name>
+    <url-pattern>/servlet/DelGro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewGro</servlet-name>
+    <url-pattern>/servlet/NewGro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelInfo</servlet-name>
+    <url-pattern>/servlet/DelInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewInfo</servlet-name>
+    <url-pattern>/servlet/NewInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteResource</servlet-name>
+    <url-pattern>/servlet/DeleteResource</url-pattern>
   </servlet-mapping>
   
   
