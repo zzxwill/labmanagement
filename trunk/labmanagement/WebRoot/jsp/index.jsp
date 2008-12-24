@@ -522,7 +522,7 @@ h3 {
 																									width="14">
 																							</td>
 																							<td width='60%'>
-																								项目列表
+																								任务列表
 																							</td>
 																							<td width='30%' align='right'>
 																								<a
@@ -581,9 +581,11 @@ h3 {
 		      {
 //		    	out.print("<tr><td width=\"20%\" class=\"indl1\">");
 //		    	out.print("["+res.getString(3)+"]"+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
+		   		
 		    %>
 		    <tr>
-				<td width="60%" style="height: 32px">&#12539; <a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"><%=res.getString(2) %></a></td>
+				<td width="60%" style="height: 32px">&#12539;
+				 <a href="/labmanagement/project/<%=res.getString(5)%>/1.jsp?projectID=<%=res.getString(1) %>" target="_blank"><%=res.getString(2) %></a></td>
 				<td width="40%" align="left" style="height: 32px"><%=res.getString(4)%></td>
 			</tr>
 		   
