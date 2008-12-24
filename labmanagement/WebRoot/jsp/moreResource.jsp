@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
-<%@ include file="head.jsp" %>
+<%@ include file="indexhead.jsp" %>
 <%@ page import="java.sql.*"  %>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	
@@ -12,15 +12,7 @@
 	</head>
 
 	<body>
-	<table width="900" border="0" align="center" cellpadding="0"
-				cellspacing="0" class="tbspan">
-				<tr>
-					<td width="880" background="/templets/img/31bg1.gif">
-						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">Ê×Ò³</a>
-						</span> 
-					</td>
-				</tr>
-			</table>
+	
 		<table width="600" border="0" align="center" cellpadding="0"
 				cellspacing="0" class="tbspan" style="height: 19px">
 				<tr>

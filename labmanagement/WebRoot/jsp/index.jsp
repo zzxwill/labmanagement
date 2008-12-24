@@ -140,20 +140,35 @@ h3 {
 						</table>
 						
 						
-						<!--Split-->
+								<!--Split-->
 						<table width="96%" border="0" align="center" cellpadding="2"
 							cellspacing="1" bgcolor="#BCC1B3">
 							<tr>
 								<td valign="top" bgcolor="#FFFFFF">
-								
-										<table width="100%" border="0" cellspacing="0" cellpadding="0">
-											<form action="/labmanagement/servlet/Login" method="post">
-											学号：<input type="text" name="stuNO" >
-											密码：<input type="password" name="password" >
-											<input type=submit value=登陆> 
-											<input type=reset value=重填>
-											</form>
-										</table>
+								<%      //Object id=null;
+								        Object id=session.getAttribute("memID");
+								        String y=(String)id;
+								        //out.print(y);
+								        //int x=Integer.parseInt(y);
+								        //out.print(x);
+								        if(y!=null){
+										out.print("您已经登陆<br>");
+										
+										
+										out.print("<a href='/labmanagement/jsp/reload.jsp'>到个人页面</a><br>");
+										out.print("<a href='/labmanagement/jsp/logout.jsp'>注销</a>");
+										}
+										else{
+										out.print("<table width=100% border=0 cellspacing=0 cellpadding=0>");
+										out.print("<form action='/labmanagement/servlet/Login' method='post'>");
+											out.print("学号：<input type=text name=stuNO>");
+											out.print("密码：<input type=password name=password >");
+											out.print("<input type=submit value=登陆> ");
+											out.print("<input type=reset value=重填>");
+											out.print("</form>");
+										out.print("</table>");
+										}
+										%>
 								</td>
 							</tr>
 						</table>

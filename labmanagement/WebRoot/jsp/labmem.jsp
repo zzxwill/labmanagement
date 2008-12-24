@@ -63,6 +63,7 @@
              QQ=res.getString(6);
              MSN=res.getString(7);
              telephone=res.getString(8);
+             
              }
 %>
  <%   request.setCharacterEncoding("gb2312");   %>
@@ -72,7 +73,7 @@
   <h2> 修改个人信息</h2>
   
     <form action="/labmanagement/servlet/LabMem" method="post"> 
-    <input name="password" type="hidden"  value=<%=password%> ><br />
+    <input name="pass" type="hidden" value=<%=password %> size="25" ><br />
      实验室ID：<input name="memID" type="text" value=<%=id %> size="20" readonly><br />
      学号: <input name="stuNo" type="text" value=<%=stuNo %> size="25"  readonly><br />
      姓名:<input name="memName" type="text"  value=<%=memName%> size="25"  ><br />
@@ -80,6 +81,9 @@
 	MSN：<input name="MSN"  type="text" value=<%=MSN %> size="25" ><br />
 	实验室号：<input name="labNo"  type="text" value=<%=labNo %> size="25" ><br />
 	联系电话：<input name="telephone"  type="text" value=<%=telephone %> size="25" ><br />
+	原密码：<input name="password" type="password" size="25" ><br />
+	更改密码：<input name="npd"  type="password"  size="25" ><br />
+	重新输入密码：<input name="npd2"  type="password"  size="25" ><br />
 	<input type="submit" value="确认更改" /><br />
 	</form>
 	

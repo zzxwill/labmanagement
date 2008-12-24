@@ -37,8 +37,10 @@
 			    response.sendRedirect("/labmanagement/jsp/user.jsp") ;
 				else if(y==3)
 				response.sendRedirect("/labmanagement/jsp/superAdmin.jsp") ;
-				else
+				else if(y==2)
 			   response.sendRedirect("/labmanagement/jsp/groupAdmin.jsp") ;
+			  
+			   
 			 %>
 			<!--%=memID %  -->
 		</body>

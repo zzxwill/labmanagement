@@ -20,10 +20,10 @@
   
   <body>
   <table width="900" border=0 align=center>
-  <tr><th width="450">
+  <tr><th width="300">
   <a href="/labmanagement/jsp/superUser.jsp">组管理</a> </th> 
-  <th width="450">   <a href="/labmanagement/jsp/releaseInfo.jsp">发布信息</a>
-  </th></tr>
+  <th width="300">   <a href="/labmanagement/jsp/releaseInfo.jsp">发布信息</a>
+  </th> <th width="300"><a href="/labmanagement/jsp/allUser.jsp">实验室成员管理</a></th></tr>
   </table>
   </body>
 </html>
