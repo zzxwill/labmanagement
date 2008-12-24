@@ -26,14 +26,14 @@
 					<td width="880" background="/templets/img/31bg1.gif">
 						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">首页</a> | <a
 							href="/labmanagement/jsp/labmem.jsp">修改个人信息</a> | <a href="/labmanagement/jsp/resrouse.jsp">资源</a>
-							| <a href="/labmanagement/jsp/project.jsp">任务</a> | <a href="/labmanagement/jsp/product.jsp">
-								公共信息</a> | <a href="mailto:zzxwill@buaa.edu.cn">联系我们</a>
+							| <a href="/labmanagement/jsp/memproject.jsp">任务</a> | <a href="/labmanagement/jsp/morePubInfo.jsp">
+								公共信息</a> | <a href="/labmanagement/jsp/equipment.jsp">设备</a> | <a href="mailto:zzxwill@buaa.edu.cn">联系我们</a> |<a href="/labmanagement/jsp/logout.jsp">注销</a>
 						</span> 
 					</td>
 				</tr>
 			</table>
-			
-	<table border="1" width="100%">		
+			<br>
+	<table border="1" width="900"  align="center">		
 	<tr ><td width="20%"><table border="0" align="left">
 			<tr>
 			<th align=left>参与项目名称</th>
@@ -41,7 +41,7 @@
 			<%
 			//int  id=Integer.parseInt((String)request.getAttribute("memID"));
 			 Object id=session.getAttribute("memID");
-			
+			 session.setAttribute("memID",id);
 			 
 			 //if(i1.toString().equals("1")){
 			 //Object id2=session.getAttribute("memid");
@@ -61,7 +61,7 @@
 		      
 		      stmt = (Statement) conn.createStatement();
 
-				res = stmt.executeQuery("select projectName from  project1 where memID='"+id+"'");
+				res = stmt.executeQuery("select projectName from  mem_pro where memID='"+id+"'");
 
 		      while (res.next())
 		      {	        

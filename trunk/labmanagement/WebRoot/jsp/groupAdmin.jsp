@@ -121,7 +121,7 @@
 
  				<!-- 这里通过超链接传值特别经典! -->
  				<!-- 这样,将noticeID传到了页面 changeNotice.jsp中-->
-	<td><a href="/labmanagement/servlet/MoveMemOut?memID=<%=res.getString(1)%>">移出组</a></td>
+	<td><a href="/labmanagement/servlet/MoveMemOut?groupUserID=<%=res.getString(1)%>">移出组</a></td>
 	<%
 	out.print("</tr>");
 //	out.print("</td><td>");

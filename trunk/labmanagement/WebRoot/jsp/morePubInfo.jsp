@@ -12,6 +12,15 @@
 	</head>
 
 	<body>
+	<table width="900" border="0" align="center" cellpadding="0"
+				cellspacing="0" class="tbspan">
+				<tr>
+					<td width="880" background="/templets/img/31bg1.gif">
+						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">首页</a>
+						</span> 
+					</td>
+				</tr>
+			</table>
 		<table width="600" border="0" align="center" cellpadding="0"
 				cellspacing="0" class="tbspan" style="height: 19px">
 				<tr>
@@ -62,25 +71,26 @@
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
-
+              int[] x=new int[100]; //信息ID
+              int i=0;
+              String[] inTi=new String[100];//信息标题
+              String[] inTm=new String[100];//发布时间
 		      while (res.next())
 		      {
-		    	out.print("<tr><td width=\"40%\" class=\"indl1\">");
-		    %>
-		   
-		    	<a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"><%=res.getString(2) %></td><td width="30%" align="right" class="indl1">
-		
-		    <%
-//		    	out.print(res.getString(3)+"</td><td width=\"50%\" align=\"right\" class=\"indl1\">");
-				out.print(res.getString(4)+"</td></tr>");
-//		        request.setAttribute("memID",   memID);   
-//		        getServletContext().getRequestDispatcher("/jsp/test.jsp").forward(request,   response); 
-//		        response.sendRedirect("http://localhost:8080/labmanagement/jsp/test.jsp") ;
-
-		        
-//		        out.println(res.getString(2));
-//		        out.println(res.getString(3));
-//		        out.println("恭喜您，公告更改成功！<br>");
+		        x[i]=res.getInt(1);
+		        inTi[i]=res.getString(2);
+		        inTm[i]=res.getString(4);
+		        i++;
+		      }
+		      for(i=0;x[i]!=0;i++){
+		  
+		      out.print("<tr><td width=40% class=indl1 >");
+		      System.out.print(x[i]);
+		      out.print("<a href='/labmanagement/jsp/info_detail.jsp?inid="+x[i]+"'>"+inTi[i]+"</a></td>");
+		      //request.setAttribute("inid",x[i] );
+		     // out.print("</a></td>");
+		      out.print("<td width=50% align=right class=indl1 >"+inTm[i]+"</td></tr>");
+		     
 		      }
 		      
 		  

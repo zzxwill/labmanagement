@@ -12,8 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LabMem extends HttpServlet {
+public class DelInfo extends HttpServlet {
 
+	/**
+	 * Constructor of the object.
+	 */
+	public DelInfo() {
+		super();
+	}
 
 	/**
 	 * Destruction of the servlet. <br>
@@ -22,8 +28,6 @@ public class LabMem extends HttpServlet {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
 	}
-
-	
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -37,16 +41,10 @@ public class LabMem extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 request.setCharacterEncoding("gb2312"); 
-		String memID=request.getParameter("memID");
-		String memName=request.getParameter("memName");
-		String stuNo=request.getParameter("stuNo");
-		String labNo=request.getParameter("labNo");
-		String QQ=request.getParameter("QQ");
-		String MSN=request.getParameter("MSN");
-		String telephone=request.getParameter("telephone");
-		String password=request.getParameter("password");
-		int id=Integer.parseInt(memID);
+
+		request.setCharacterEncoding("gb2312"); 
+		String Infon=request.getParameter("infon");//获取要删除的小组名
+
 		response.setContentType("text/html;charset=GB2312");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
@@ -62,23 +60,24 @@ public class LabMem extends HttpServlet {
 	      conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/labmanagement?useUnicode=true&characterEncoding=GB2312",
 	                                         "root", "zzxwill");
 	      //执行SQL语句
-	      
+	      //out.print(Grn);
 	      stmt = (Statement) conn.createStatement();
-	     
-	  int number=stmt.executeUpdate("update labmem set stuNo='"+stuNo+"', memName='"+memName+"',labNo='"+labNo+"',password='"+password+"',QQ='"+QQ+"',MSN='"+MSN+"',telephone='"+telephone+"'  where memID="+id+"");
-	  
-//	  out.print("添加的条数："+number);
-	  /*
-	   * 如果添加的条数为一，则表示成功插入了数据，因此，可以用这来判断数据库是否成功插入了数据。
-	   */
-	  
+	      int  gi=0;
+	   res=stmt.executeQuery("select infoID from pubinfo where infoTitle='"+Infon+"'");
+	   
+	   while(res.next()){
+		   gi=res.getInt(1);
+	   }
+	   stmt.executeUpdate("delete from pubinfo where infoID='"+gi+"'");
+	   int number=stmt.executeUpdate("delete from releaseinfo where inforID='"+gi+"'");
+	   //int number=stmt.executeUpdate("delete from groupmem where groupID='"+gi+"'");
 	  if(number==1){
-		  out.println("恭喜您，个人信息更改成功！<br>");
-		  out.println("<a href='/labmanagement/jsp/user.jsp'>返回注册用户页面</a>");
+		  out.println("恭喜您，删除信息成功！<br>");
+		  out.println("<a href='/labmanagement/jsp/releaseInfo.jsp'>返回信息管理页面</a>");
 	  }
 	  else{
-		  out.println("对不起，个人信息更新失败，请返回继续操作！");
-		  out.println("<a href='/labmanagement/jsp/labmem.jsp'>返回个人信息修改页面</a>");
+		  out.println("对不起，删除信息失败，请返回继续操作！");
+		  out.println("<a href='/labmanagement/jsp/releaseInfo.jsp'>返回信息管理页面</a>");
 	  }
 	      res.close();
 
@@ -88,11 +87,18 @@ public class LabMem extends HttpServlet {
 	      System.out.println("Error : " + ex.toString());
 	    }
 
-	
-	
+
+
 	    out.println("</body></html>");
-	
 	}
 
+	/**
+	 * Initialization of the servlet. <br>
+	 *
+	 * @throws ServletException if an error occurs
+	 */
+	public void init() throws ServletException {
+		// Put your code here
+	}
 
 }

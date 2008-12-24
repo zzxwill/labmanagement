@@ -19,6 +19,18 @@
   </head>
   
   <body>
+   <table width="900" border="0" align="center" cellpadding="0"
+				cellspacing="0" class="tbspan">
+				<tr>
+					<td width="880" background="/templets/img/31bg1.gif">
+						<span class="STYLE61"><a href="/labmanagement/jsp/index.jsp">首页</a> | <a
+							href="/labmanagement/jsp/labmem.jsp">修改个人信息</a> | <a href="/labmanagement/jsp/resrouse.jsp">资源</a>
+							| <a href="/labmanagement/jsp/memproject.jsp">任务</a> | <a href="/labmanagement/jsp/morePubInfo.jsp">
+								公共信息</a> | <a href="/labmanagement/jsp/equipment.jsp">设备</a> | <a href="mailto:zzxwill@buaa.edu.cn">联系我们</a> | <a href="/labmanagement/jsp/logout.jsp">注销</a>
+						</span> 
+					</td>
+				</tr>
+			</table>
   <%
 			  Object id=session.getAttribute("memID");
 		      Connection conn=null;
@@ -54,18 +66,26 @@
              }
 %>
  <%   request.setCharacterEncoding("gb2312");   %>
+  
+  <table align="center" width="900">
+
   <h2> 修改个人信息</h2>
+  
     <form action="/labmanagement/servlet/LabMem" method="post"> 
     <input name="password" type="hidden"  value=<%=password%> ><br />
      实验室ID：<input name="memID" type="text" value=<%=id %> size="20" readonly><br />
-       学号：<input name="stuNo" type="text" value=<%=stuNo %> size="25"  readonly><br />
-	姓名:<input name="memName" type="text"  value=<%=memName%> size="26"  ><br />
-	QQ：<input name="QQ"  type="text" value=<%=QQ %> size="27" ><br />
-	MSN：<input name="MSN"  type="text" value=<%=MSN %> size="26" ><br />
-	实验室号：<input name="labNo"  type="text" value=<%=labNo %> size="20" ><br />
-	联系电话：<input name="telephone"  type="text" value=<%=telephone %> size="20" ><br />
+     学号: <input name="stuNo" type="text" value=<%=stuNo %> size="25"  readonly><br />
+     姓名:<input name="memName" type="text"  value=<%=memName%> size="25"  ><br />
+    QQ：<input name="QQ"  type="text" value=<%=QQ %> size="25" ><br />
+	MSN：<input name="MSN"  type="text" value=<%=MSN %> size="25" ><br />
+	实验室号：<input name="labNo"  type="text" value=<%=labNo %> size="25" ><br />
+	联系电话：<input name="telephone"  type="text" value=<%=telephone %> size="25" ><br />
 	<input type="submit" value="确认更改" /><br />
 	</form>
-	<a href="index.jsp">返回首页</a>
+	
+	
+	
+	</table>
+	
   </body>
 </html>

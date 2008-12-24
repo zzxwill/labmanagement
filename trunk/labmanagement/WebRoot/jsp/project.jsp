@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
-<%@ include file="head.jsp" %>
+<%@ include file="indexhead.jsp" %>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	
 	<head>
