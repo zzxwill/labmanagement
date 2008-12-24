@@ -50,7 +50,7 @@
 			  //int  id=1;
 		      Connection conn=null;
 		      Statement stmt;
-		      ResultSet res = null;
+		      ResultSet qwe = null;
 		      //加载Connector/J驱动
 		      //这一句也可写为：Class.forName("com.mysql.jdbc.Driver");
 		      Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -61,11 +61,11 @@
 		      
 		      stmt = (Statement) conn.createStatement();
 
-				res = stmt.executeQuery("select projectName from  mem_pro where memID='"+id+"'");
+				qwe = stmt.executeQuery("select projectName from  mem_pro where memID='"+id+"'");
 
-		      while (res.next())
+		      while (qwe.next())
 		      {	        
-		       out.print("<tr><td>"+res.getString(1)+"</td></tr>");//projectName
+		       out.print("<tr><td>"+qwe.getString(1)+"</td></tr>");//projectName
 		       }
 %>		
 		</table></td>
@@ -76,15 +76,15 @@
 			</tr>
 			<%
 			try{
-			  ResultSet a = null;
-		      a = stmt.executeQuery("select * from  labmem where memID='"+id+"'");
-		        while (a.next()){    
-		       out.print("<tr><td>姓名："+a.getString(2)+"</td></tr>");//memName
-		       out.print("<tr><td>学号："+a.getString(4)+"</td></tr>");//studentNo.
-		       out.print("<tr><td>实验室号："+a.getString(5)+"</td></tr>");//labNo.
-		       out.print("<tr><td>QQ："+a.getString(6)+"</td></tr>");//QQ
-		       out.print("<tr><td>MSN："+a.getString(7)+"</td></tr>");//MSN
-		       out.print("<tr><td>电话："+a.getString(8)+"</td></tr>");//telephone
+			  ResultSet ewq = null;
+		      ewq = stmt.executeQuery("select * from  labmem where memID='"+id+"'");
+		        while (ewq.next()){    
+		       out.print("<tr><td>姓名："+ewq.getString(2)+"</td></tr>");//memName
+		       out.print("<tr><td>学号："+ewq.getString(4)+"</td></tr>");//studentNo.
+		       out.print("<tr><td>实验室号："+ewq.getString(5)+"</td></tr>");//labNo.
+		       out.print("<tr><td>QQ："+ewq.getString(6)+"</td></tr>");//QQ
+		       out.print("<tr><td>MSN："+ewq.getString(7)+"</td></tr>");//MSN
+		       out.print("<tr><td>电话："+ewq.getString(8)+"</td></tr>");//telephone
 		       }
 		       }
 		       catch (Exception ex){
@@ -98,12 +98,12 @@
 			</tr>
 			<%
 			
-		      ResultSet re = null;
-		      re = stmt.executeQuery("select memName from  group1 where groupID=(select groupID from group1 where memID='"+id+"')");
+		      ResultSet weq = null;
+		      weq = stmt.executeQuery("select memName from  group1 where groupID=(select groupID from group1 where memID='"+id+"')");
 
-		      while (re.next())
+		      while (weq.next())
 		      {	        
-		       out.print("<tr><td>"+re.getString(1)+"</td></tr>");//groupMemberName
+		       out.print("<tr><td>"+weq.getString(1)+"</td></tr>");//groupMemberName
 		       }
 %>		
 		</table></td></tr>

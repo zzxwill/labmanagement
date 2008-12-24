@@ -131,6 +131,10 @@ public class Login extends HttpServlet {
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
+		  	if(!res.next()){
+			    out.print("您输入的用户名或密码错误!"+"<a href=\"/labmanagement/jsp/index.jsp\">请重新登录</a>");
+
+		  	}
 
 		      while (res.next())
 		      {
@@ -148,6 +152,9 @@ public class Login extends HttpServlet {
 //		        out.println("恭喜您，公告更改成功！<br>");
 		      }
 		      
+		
+			   
+		      
 		  
 		      res.close();
 //		      out.println("Successful!");
@@ -158,7 +165,6 @@ public class Login extends HttpServlet {
 		      System.out.println("Error : " + ex.toString());
 		    }
 
-		
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();

@@ -57,6 +57,7 @@
 		      for(z=0;z<100;z++){
 		      gd[z]=-1;
 		      }
+		      
 		      int i=0;
 		      stmt = (Statement) conn.createStatement();
 
@@ -82,14 +83,19 @@
 				<tr>
 					<%
 						ResultSet r = null;
-						for (i = 0; gd[i]!=-1; i++) {
+						for (i = 0; gd[i] != -1; i++) {
+						 
 							out.print("<tr>");
+							if(gd[i]==0){
+							  out.print("<td height=50 align=center><br></td>");
+							  }
 							r = stmt
 									.executeQuery("select memName from group1 where groupId='"
 											+ gd[i] + "' and rightID='2'");
 							while (r.next()) {
+							
 								out.print("<td height=50 align=center>" + r.getString(1) + "</td>");
-
+								
 							}
 							out.print("</tr>");
 						}
@@ -106,7 +112,7 @@
 				<tr>
 					<%
 						ResultSet t = null;
-						for (i = 0; gd[i] !=-1; i++) {
+						for (i = 0; gd[i] != -1; i++) {
 							out.print("<tr>");
 							t = stmt
 									.executeQuery("select memName from group1 where groupId='"
@@ -218,11 +224,16 @@
 
 							String[] gn = new String[100]; //组名
 							int k = 0;
-							st = stmt.executeQuery("select groupName from grou ");
+							st = stmt.executeQuery("select * from grou ");
 							while (st.next()) {
 								//out.print("<td width=75>"+t.getString(1)+"</td>");
-								gn[k] = st.getString(1);
+								if(st.getInt(1)==0){
+							       ;
+								}
+								else{
+								gn[k] = st.getString(2);
 								k++;
+								}
 							}
 							//out.print("</tr>");
 
@@ -241,7 +252,7 @@
 				</tr>
 			</table>
 			</td></tr>
-			 <tr><td><a href="/labmanagement/jsp/superAdmin.jsp">返回超级管理员页面</a></td></tr>
+			<tr><td><a href="/labmanagement/jsp/superAdmin.jsp">返回超级管理员页面</a></td></tr>
 		</table>
 		
 		
