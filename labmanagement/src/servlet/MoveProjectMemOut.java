@@ -40,12 +40,21 @@ public class MoveProjectMemOut extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		session.setAttribute("projectID",res4.getString(1));
+//        session.setAttribute("projectMemID",res4.getString(5));
 		
+//		String projectID=request.getParameter("projectID");
+//		String memID=request.getParameter("memID");
+		
+//		Object projectID=request.getSession().getAttribute("projectID");
+//		Object projectMemID=request.getSession().getAttribute("projectMemID");
+//		System.out.print("projectID:"+projectID);
+//		System.out.println("projectMemID:"+projectMemID);
 		
 		String projectID=request.getParameter("projectID");
-		String memID=request.getParameter("memID");
-		
-		
+		String projectMemID=request.getParameter("projectMemID");
+		System.out.println("m:"+projectID);
+		System.out.println("m:"+projectMemID);
 		
 		response.setContentType("text/html;charset=GB2312");
 		PrintWriter out = response.getWriter();
@@ -60,7 +69,7 @@ public class MoveProjectMemOut extends HttpServlet {
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/labmanagement",
                 "root", "zzxwill");
 			Statement stmt=conn.createStatement();
-			int num=stmt.executeUpdate("delete * from projectmem where memID='"+memID+"' and project='"+projectID+"'");
+			int num=stmt.executeUpdate("delete from projectmem where memID='"+projectMemID+"' and projectID='"+projectID+"';");
 			if(num==1){
 				out.print("移出组员操作成功!\n 请返回");
 			}

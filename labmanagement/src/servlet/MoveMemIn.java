@@ -42,11 +42,21 @@ public class MoveMemIn extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 
+//		session.setAttribute("userMemID",res2.getString(1));
+//		session.setAttribute("groupAdminID",groupAdminID);
+		
+		Object userMemID=request.getSession().getAttribute("userMemID");
+		System.out.println("用户的ID:"+userMemID);
+		
+		Object groupAdminID=request.getSession().getAttribute("groupAdminID");
+		System.out.println("所在的组传到servlet中:"+groupAdminID);
 
-		String userMemID=request.getParameter("userMemID");
-		String groupAdminID=request.getParameter("groupAdminID");
-		System.out.print(userMemID);
-		System.out.print(groupAdminID);
+//		String userMemID=request.getParameter("userMemID");
+//		String groupAdminID=request.getParameter("groupAdminID");
+		
+		
+//		System.out.print(userMemID);
+//		System.out.print("所在的组传到servlet中:"+groupAdminID);
 		
 		response.setContentType("text/html;charset=GB2312");
 		response.setContentType("text/html");
@@ -69,7 +79,7 @@ public class MoveMemIn extends HttpServlet {
 			
 			while(res.next()){
 				adminGroupID=res.getString("groupID");
-//				System.out.print("adminGroupID"+adminGroupID);
+				System.out.print("adminGroupID:"+adminGroupID);
 			}
 			
 		}catch(Exception e){};
@@ -84,10 +94,10 @@ public class MoveMemIn extends HttpServlet {
 		int num=stmt2.executeUpdate("update groupmem set groupID='"+adminGroupID+"' where memID='"+userMemID+"';");
 
 			if(num==1){
-				out.print("移出组员操作成功!\n ");
+				out.print("移入组员操作成功!\n ");
 			}
 			else{
-				out.print("移出组员操作失败!\n");
+				out.print("移入组员操作失败!\n");
 			}
 		}catch(Exception e){};
 
@@ -111,9 +121,11 @@ out.close();
 	 * @param response the response send by the server to the client
 	 * @throws ServletException if an error occurred
 	 * @throws IOException if an error occurred
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
