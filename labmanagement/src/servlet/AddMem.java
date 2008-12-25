@@ -44,8 +44,10 @@ public class AddMem extends HttpServlet {
 		
 		
 		
-		Object projectMemID=request.getParameter("projectMemID");
-		System.out.print("projectMemID:"+projectMemID);
+
+		Object memID=request.getParameter("memID");
+		System.out.print("memID:"+memID);
+		
 		response.setContentType("text/html;charset=GB2312");
 
 //		response.setContentType("text/html");
@@ -58,7 +60,9 @@ public class AddMem extends HttpServlet {
 		
 		String   a[]=request.getParameterValues( "project");
 		int count=0;
+		
 		String projectID=null;
+		
 		try{
 			count=a.length;
 		}catch(Exception e){};
@@ -74,8 +78,8 @@ public class AddMem extends HttpServlet {
 		Connection conn7=DriverManager.getConnection("jdbc:mysql://localhost:3306/labmanagement",
 	                                         "root", "zzxwill");
 	    Statement stmt7=conn7.createStatement();
-	    ResultSet res7 = null;
-	  	int num=stmt7.executeUpdate("insert into projectmem values('"+projectMemID+"','"+projectID+"')");
+//	    ResultSet res7 = null;
+	  	int num=stmt7.executeUpdate("insert into projectmem values('"+memID+"','"+projectID+"')");
 	  	if(num==1){
 			out.print("为任务添加成员操作成功!\n ");
 		}

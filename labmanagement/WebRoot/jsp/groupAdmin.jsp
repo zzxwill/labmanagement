@@ -414,12 +414,12 @@
 											}
 
 											deadline = res4.getString(4);
-											out.print("<td width=\"20%\">" + res4.getString(6)
+											out.print("<td width=\"20%\">" + res4.getString(7)
 													+ "</td>");//ID
 								%>
 								<td>
 									<a
-										href="/labmanagement/servlet/MoveProjectMemOut?projectID=<%=res4.getString(1)%>&projectMemID=<%=res4.getString(5)%>">移出</a>
+										href="/labmanagement/servlet/MoveProjectMemOut?projectID=<%=res4.getString(1)%>&projectMemID=<%=res4.getString(6)%>">移出</a>
 								</td>
 								<%
 									//		       session.setAttribute("projectID",res4.getString(1));
@@ -472,6 +472,10 @@
 											<tr><td>
 											截止时间
 											<input type="text" name="deadline"></td></tr>
+											<tr><td>
+											<!--组长ID  -->
+											<input type="hidden" name="groupAdminID" value=<%=groupAdminID %> ></td></tr>
+											
 											<tr><td>
 											<input type=submit value="添加"></td><td>
 											<input type=reset value="重填 "></td></tr>
@@ -527,11 +531,12 @@
 										//		  	res2=stmt2.executeQuery("SELECT memID,memName from manageGroup where groupID='0' or groupID='"+groupAdminID+"';");
 										res5 = stmt5
 												.executeQuery("SELECT memID,memName from managegroup where groupID=(select groupID from groupmem where memID='"
-														+ groupAdminID + "');");
+														+ groupAdminID + "') ;");
 
 										while (res5.next()) {
-
-											out.print("<tr><td>" + res5.getString(2) + "</td>");//ID 
+											if(!res5.getString("memID").equals(groupAdminID)){
+										//不输出组长本人
+											out.print("<tr><td>" + res5.getString("memName") + "</td>");//ID 
 
 											/************************************************************************************************************
 											 *应该在下面输入任务,让组长来给他分配任务************************************************************************
@@ -547,9 +552,9 @@
 											Statement stmt7 = conn7.createStatement();
 											ResultSet res7 = null;
 											res7 = stmt7
-													.executeQuery("SELECT distinct projectID,projectName from manageproject;");
+													.executeQuery("SELECT distinct projectID,projectName from manageproject where memID='"+groupAdminID+"' ;");
 									%>
-									<form action="/labmanagement/servlet/AddMem" method="post">
+									<form action="/labmanagement/servlet/AddMem" method="get">
 										<select name="project">
 											<%
 												//	      String projectMemID=res7.getString(1);
@@ -565,9 +570,11 @@
 												%>
 											
 										</select>
-										<input type="hidden" name="projectMemID"
-											value=<%=res5.getString(1)%>>
-										<input type="submit" value="送出">
+										<input type="hidden" name="memID"
+											value=<%=res5.getString("memID")%>>
+											
+									  
+										<input type="submit" value="添加">
 									</form>
 									
 
@@ -580,6 +587,7 @@
 										out.print("</tr>");
 											//	out.print("</td>");
 											//这是第二列
+										}
 										}
 
 										res5.close();

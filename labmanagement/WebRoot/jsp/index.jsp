@@ -109,6 +109,7 @@ h3 {
 			
 			<table width="900" border="0" cellspacing="0" cellpadding="0">
 				<tr>
+				<%int 	FLAG=6;//用于控制信息的条数 %>
 					<td width="222" valign='top' bgcolor='#EAF2E5'
 						background='/labmanagement/images/ibg.gif'>
 						<!--Split-->
@@ -317,12 +318,17 @@ h3 {
               int i=0;
               String[] inTi=new String[100];//信息标题
               String[] inTm=new String[100];//发布时间
+
+              //用来控制显示的信息条数
 		      while (res.next())
 		      {
+
+		      	if(i<=FLAG+2){
 		        x[i]=res.getInt(1);
 		        inTi[i]=res.getString(2);
 		        inTm[i]=res.getString(4);
 		        i++;
+		        }
 		      }
 		      for(i=0;x[i]!=0;i++){
 		  
@@ -460,9 +466,11 @@ h3 {
 		  
 //		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
 		      //处理结果集
-
+				int j=0;
 		      while (res.next())
 		      {
+		      j++;
+		      if(j<=FLAG){
 //		    	out.print("<tr><td width=\"20%\" class=\"indl1\">");
 //		    	out.print("["+res.getString(3)+"]"+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
 		    %>
@@ -473,7 +481,7 @@ h3 {
 		   
 		    	<!--  a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"/><%=res.getString(2) %></td><td width="30%" align="right" class="indl1"-->
 		
-		    <%
+		    <%}
 //		    	out.print(res.getString(3)+"</td><td width=\"50%\" align=\"right\" class=\"indl1\">");
 //				out.print(res.getString(4)+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
 //				out.print(res.getString(4)+"</td></tr>");
@@ -588,12 +596,15 @@ h3 {
               int i=0;
               String[] inTi=new String[100];//信息标题
               String[] inTm=new String[100];//发布时间
+           
 		      while (res.next())
 		      {
+		      	if(i<FLAG+2){
 		        x[i]=res.getInt(1);
 		        inTi[i]=res.getString(2);
 		        inTm[i]=res.getString(4);
 		        i++;
+		        }
 		      }
 		      for(i=0;x[i]!=0;i++){
 		  
