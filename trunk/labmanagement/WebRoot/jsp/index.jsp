@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<title>实验室管理系统网站</title>
@@ -45,6 +45,10 @@ h3 {
 	font-family: "微软雅黑";
 	font-size: 18px;
 	color: #006699;
+}
+
+.style1 {
+	background-color: #FFFFFF;
 }
 
 </style>
@@ -110,7 +114,7 @@ h3 {
 			<table width="900" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 				<%int 	FLAG=6;//用于控制信息的条数 %>
-					<td width="222" valign='top' bgcolor='#EAF2E5'
+					<td width="222" valign='top' 
 						background='/labmanagement/images/ibg.gif'>
 						<!--Split-->
 						<table width="96%" align="center" cellpadding="0" cellspacing="0">
@@ -120,7 +124,7 @@ h3 {
 										style="width: 115px">
 										<tr>
 											<td vAlign="top" width="222" background="/labmanagement/images/ibg.gif"
-												bgColor="#eaf2e5">
+												>
 												<!--Split-->
 												<table cellSpacing="0" cellPadding="0" width="96%"
 													align="center">
@@ -143,9 +147,9 @@ h3 {
 						
 								<!--Split-->
 						<table width="96%" border="0" align="center" cellpadding="2"
-							cellspacing="1" bgcolor="#BCC1B3">
+							cellspacing="1" bgcolor="#BCC1B3" style="background-color: rgb(255, 255, 255);">
 							<tr>
-								<td valign="top" bgcolor="#FFFFFF">
+								<td valign="top" >
 								<%      //Object id=null;
 								        Object id=session.getAttribute("memID");
 								        String y=(String)id;
@@ -156,7 +160,7 @@ h3 {
 										out.print("您已经登陆<br>");
 										
 										
-										out.print("<a href='/labmanagement/jsp/reload.jsp'>到个人页面</a><br>");
+										out.print("<a href='/labmanagement/jsp/reload.jsp'>进入个人页面</a><br>");
 										out.print("<a href='/labmanagement/jsp/logout.jsp'>注销</a>");
 										}
 										else{
@@ -175,68 +179,82 @@ h3 {
 						</table>
 						
 						<!--Split-->
-						<table width="96%" align="center" cellpadding="0" cellspacing="0">
-							<tr>
-								<td height="4"></td>
-							</tr>
-							<tr>
-								<td height="2">
-									<img alt="" src="/labmanagement/images/pic_arrow.gif" width="11" height="11">
-									友情链接
-								</td>
-							</tr>
+						<table width="221" align="center" cellpadding="0" cellspacing="0" height="23">
+							
+							
+							<tr><td valign="top">&nbsp;</td></tr>
 						</table>
 						
 						<!--Split-->
-						<table width="96%" border="0" align="center" cellpadding="2"
-							cellspacing="1" bgcolor="#BCC1B3">
-							<tr>
-								<td valign="top" bgcolor="#FFFFFF" style="height: 107px">
-									北京航空航天大学
-											<font size="2"><a href="http://www.buaa.edu.cn">
-									http://www.buaa.edu.cn</a> 
-									</font><br /> 
-									北京航空航天大学虚拟现实<br>技术与系统国家重点实验室 
-									<font size="2"><a href="http://www.vrlab.buaa.edu.cn/">
-									http://www.vrlab.buaa.edu.cn/</a></font>
-									<br> <br> 
-									<br />
-								</td>
-							</tr>
-						</table>
 						
 						<!--Split-->
 						<table align="center" cellpadding="0" cellspacing="0"
 							style="width: 98%">
-							<tr>
-								<td height="4">
-									<a href='applyLink.jsp'>[申请链接]</a>
-								</td>
-							</tr>
+							
 							<tr>
 							<td>
 								
 								
 								<!-- SiteSearch Google -->
 <form method=get action="http://www.google.com/search">
-<table bgcolor="#FFFFFF"><tr>
-搜索本站
-<td>
-
-</td>
-<td>
+<table bgcolor="#FFFFFF" width="285" height="125" style=""><tr>
+	<td valign="top" bgcolor="#E6F2CC" style="width: 287px"><img width="41" height="23" border="0" src="../images/search.png" align="absbottom">搜索本站</td></tr><tr> 
+<td style="width: 287px">
 <input type=text name=q size=31 maxlength=255 value="">
 <input type=hidden name=ie value=GB2312>
 <input type=hidden name=oe value=GB2312>
-<input type=hidden name=hl value=zh-CN>
-<input type=submit name=btnG value="搜索" >
+<input type=hidden name=hl value=zh-CN> <input type=submit name=btnG value="搜索" >
 <font size=-1>
 <input type=hidden name=domains value="YOUR DOMAIN NAME"><br>
 <input type=radio name=sitesearch value=""> Google
 <input type=radio name=sitesearch value="http://localhost:8080/labmanagement/jsp/index.jsp" checked>实验室管理系统
 </font>
 </td></tr></table>
+<br>
+<br>
 </form>
+						<table border="0" align="center" cellpadding="2"
+							cellspacing="1" style="width: 278px; height: 139px">
+							
+							<tr>
+								<!--  td valign="top" bgcolor="#E6F2CC" class="style1"-->
+									<td bgcolor="#E6F2CC"><img width="11" height="11" alt="" src="/labmanagement/images/pic_arrow.gif"> 友情链接</td>
+								</tr> 
+							
+							<tr>
+								<td><strong><font color="#004080"> 
+								北京航空航天大学主页</font></strong> 
+								 
+									<a href="http://www.buaa.edu.cn">
+									http://www.buaa.edu.cn</a>
+								</td>
+								</tr> 
+							
+							<tr>
+								<td><strong><font color="#004080"> 
+								北京航空航天大学虚拟现实技术与系统国家重点实验室</font></strong>  
+									<a href="http://www.vrlab.buaa.edu.cn/">
+									http://www.buaa.edu.cn</a>
+								</td>
+								</tr> 
+							
+							
+							<tr>
+								<td>
+									<a href="applyLink.jsp"><h3 class="STYLE14">[申请链接]  </h3></a>
+								</td>
+								</tr> 
+							
+							<tr>
+								<td></td>
+								</tr> 
+							
+							
+									</td>
+							</tr>
+							</table>
+						
+
 								
 								</td>
 								
@@ -257,11 +275,11 @@ h3 {
 								<td width="98%" height="365" valign="top">
 									<table width="100%" border="0" cellspacing="1" cellpadding="0">
 										<tr>
-											<td style="height: 2px">
+											<td style="height: 2px" bgcolor="#E6F2CC">
 												<img height="16" src="/labmanagement/images/channellist.gif" width="14">
 												最新信息
 											</td>
-											<td style="height: 2px">
+											<td style="height: 2px" bgcolor="#E6F2CC">
 												<a
 													href="morePubInfo.jsp">
 													<img height="14" src="/labmanagement/images/more.gif" width="43" border="0"
