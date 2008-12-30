@@ -45,26 +45,12 @@
               {
               com.jspsmart.upload.File file = su.getFiles().getFile(i);
               // 若文件不存在则继续
-              //if (file.isMissing()) continue;
-              // 显示当前文件信息
-              //out.println("<TABLE BORDER=1>");
-             // out.println("<TR><TD>文件名（FileName）</TD><TD>"
-              //+ file.getFileName() + "</TD></TR>");
-             // out.println("<TR><TD>文件扩展名（FileExt）</TD><TD>"
-             // + file.getFileExt() + "</TD></TR>");
-             // out.println("<TR><TD>文件全名（FilePathName）</TD><TD>"
-             // + file.getFilePathName() + "</TD></TR>");
-             // out.println("</TABLE><BR>");
+
               
               rC=file.getFileExt();//取得文件扩展名，即文件类型
               fn=file.getFileName();//取得文件全名，用于存文件地址
               
-              // 将文件另存
-              // file.saveAs("/upload/" + myFile.getFileName());
-              // 另存到以WEB应用程序的根目录为文件根目录的目录下
-              // file.saveAs("/upload/" + myFile.getFileName(),su.SAVE_VIRTUAL);
-              // 另存到操作系统的根目录为文件根目录的目录下
-              // file.saveAs("c:\\temp\\" + myFile.getFileName(),su.SAVE_PHYSICAL);
+ 
               }
                 
               String rD=null;
@@ -98,8 +84,7 @@
 	  }
 	  Object y=session.getAttribute("memID");
 
-	 //Object y=session.getAttribute("memID");
-	  //out.print("x"+x+"y"+y);
+	
       stmt.executeUpdate("insert into releaseres(resID,memID) values ('"+x+"','"+y+"')");
       //将数据存入数据库的表releaseres
       

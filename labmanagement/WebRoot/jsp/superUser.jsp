@@ -33,15 +33,10 @@
 					</th>
 				</tr>
 				<%
-			//int  id=Integer.parseInt((String)request.getAttribute("memID"));
 			 Object id=session.getAttribute("memID");
 			 session.setAttribute("memID",id);
 			 
-			 //if(i1.toString().equals("1")){
-			 //Object id2=session.getAttribute("memid");
-			 //id=Integer.parseInt(id2.toString());
-			//}
-			  //int  id=1;
+			
 		      Connection conn=null;
 		      Statement stmt;
 		      ResultSet res = null;
@@ -67,7 +62,7 @@
 		      {	        
 		       out.print("<tr><th height=50>"+res.getString(2)+"</th></tr>");//projectName
 		       gd[i]=res.getInt(1);
-		       //out.print(gd[i]);
+		       
 		       i++;
 		       
 		       }
@@ -146,11 +141,9 @@
 										.executeQuery("select memName from group1 where groupId='"
 												+ gd[i] + "'");
 								while (s.next()) {
-									//out.print("<td width=75>"+t.getString(1)+"</td>");
 									na[j] = s.getString(1);
 									j++;
 								}
-								//out.print("</tr>");
 
 								out
 										.print("<form action='/labmanagement/servlet/ChangeGU' method='post'>");
@@ -189,11 +182,9 @@
 							stet = stmt
 									.executeQuery("select memName from mem_rig where rightID='1'");
 							while (stet.next()) {
-								//out.print("<td width=75>"+t.getString(1)+"</td>");
 								mn[l] = stet.getString(1);
 								l++;
 							}
-							//out.print("</tr>");
 
 							out
 									.print("<form action='/labmanagement/servlet/NewGro' method='post'><table >");
@@ -235,7 +226,6 @@
 								k++;
 								}
 							}
-							//out.print("</tr>");
 
 							out
 									.print("<form action='/labmanagement/servlet/DelGro' method='post'><table >");

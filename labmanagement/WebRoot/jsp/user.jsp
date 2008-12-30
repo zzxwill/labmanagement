@@ -39,15 +39,10 @@
 			<th align=left>参与项目名称</th>
 			</tr>
 			<%
-			//int  id=Integer.parseInt((String)request.getAttribute("memID"));
 			 Object id=session.getAttribute("memID");
 			 session.setAttribute("memID",id);
 			 
-			 //if(i1.toString().equals("1")){
-			 //Object id2=session.getAttribute("memid");
-			 //id=Integer.parseInt(id2.toString());
-			//}
-			  //int  id=1;
+			
 		      Connection conn=null;
 		      Statement stmt;
 		      ResultSet qwe = null;
@@ -108,7 +103,6 @@
 %>		
 		</table></td></tr>
 		</table>
-		<%//session.setAttribute("memid",id); %>
-		<%//session.setAttribute("i",'1'); %>
+		
   </body>
 </html>

@@ -7,15 +7,9 @@
 		<body>
 			<%
 				String   abc=(String)request.getAttribute("memID");
-				//out.print("用servlet中传过来的值----memID:"+abc);
-//				Login login=new Login();
-//				out.print(login.returnMemID());
-
-//				String id=(String)request.getAttribute("memID");
-//				out.println(id);
+	
 				session.setAttribute("memID",abc);
 				int x=Integer.parseInt(abc);
-				//out.print("<br>"+x);
 				  Connection conn=null;
 		      Statement stmt;
 		      ResultSet res = null;
@@ -32,7 +26,6 @@
 		      while(res.next()){
 		      y=res.getInt(1);
 		      }
-		     //out.print("<br>"+y);
 			  if(y==1)
 			    response.sendRedirect("/labmanagement/jsp/user.jsp") ;
 				else if(y==3)
@@ -42,6 +35,5 @@
 			  
 			   
 			 %>
-			<!--%=memID %  -->
 		</body>
 </html>

@@ -29,15 +29,10 @@
            <table width='100%' height='100%'  border=1>
            <tr><th width='50%'>信息标题</th><th width='50%' >发布日期</th></tr>
 				<%
-			//int  id=Integer.parseInt((String)request.getAttribute("memID"));
 			 Object id=session.getAttribute("memID");
 			 session.setAttribute("memID",id);
 			 
-			 //if(i1.toString().equals("1")){
-			 //Object id2=session.getAttribute("memid");
-			 //id=Integer.parseInt(id2.toString());
-			//}
-			  //int  id=1;
+			
 		      Connection conn=null;
 		      Statement stmt;
 		      ResultSet res = null;
@@ -54,14 +49,11 @@
 		      stmt = (Statement) conn.createStatement();
 
 			  res = stmt.executeQuery("select * from  pubinfo ");
-              //out.print("<table border=0 width='100%' height='100%'  border=1>");  
-		      //out.print("<tr><th width='50%'>信息标题</th><th width='50%' >发布日期</th></tr>"); 
-		      while (res.next())
-		      {	//out.print("<tr><td width=100>信息标题</th></tr>");
+                while (res.next())
+		      {	
 		              
 		       out.print("<tr><td >"+res.getString(2)+"</td><td>"+res.getString(4)+"</td></tr>");//projectName
 		       gd[i]=res.getInt(1);
-		       //out.print(gd[i]);
 		       i++;
 		       
 		       }
@@ -86,11 +78,9 @@
 							int k = 0;
 							st = stmt.executeQuery("select infoTitle from pubinfo ");
 							while (st.next()) {
-								//out.print("<td width=75>"+t.getString(1)+"</td>");
 								in[k] = st.getString(1);
 								k++;
 							}
-							//out.print("</tr>");
 
 							out
 									.print("<form action='/labmanagement/servlet/DelInfo?id' method='post'><table >");

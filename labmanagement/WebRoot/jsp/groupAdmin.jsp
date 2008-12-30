@@ -43,11 +43,7 @@
 			 Object id=session.getAttribute("memID");
 			 session.setAttribute("memID",id);
 			 
-			 //if(i1.toString().equals("1")){
-			 //Object id2=session.getAttribute("memid");
-			 //id=Integer.parseInt(id2.toString());
-			//}
-			  //int  id=1;
+			
 		      Connection conn=null;
 		      Statement stmt;
 		      ResultSet qwe = null;
@@ -173,7 +169,6 @@
 									out.print("<tr><td>" + res3.getString(1) + "</td>");//ID 
 									out.print("<td>" + res3.getString(2) + "</td>");//ID 
 
-									//			int noticeID=Integer.parseInt(res.getString(1));
 
 									out.print("</tr>");
 
@@ -220,13 +215,11 @@
 												+ groupAdminID
 												+ "' and groupID =(select groupID from groupmem where memID='"
 												+ groupAdminID + "');");
-								//		  out.print("<tr>");
-								//		  out.print("<td>");
+								
 								//一个表格三列,这是第一列
 								while (res.next()) {
 									out.print("<tr><td>" + res.getString(2) + "</td>");//ID      
 
-									//			int noticeID=Integer.parseInt(res.getString(1));
 							%>
 
 							<!-- 这里通过超链接传值特别经典! -->
@@ -237,7 +230,6 @@
 							</td>
 							<%
 								out.print("</tr>");
-									//	out.print("</td><td>");
 									//后面一个td是每二列
 								}
 
@@ -284,8 +276,6 @@
 								//创建一个jdbc申明
 								ResultSet res2 = null;
 								//现在是申明一个Result实例化,后面用来包装返回的结果
-								//		      res = stmt.executeQuery("select * from notice where id<='6'");
-								//		  	res2=stmt2.executeQuery("SELECT memID,memName from manageGroup where groupID='0' or groupID='"+groupAdminID+"';");
 								res2 = stmt2
 										.executeQuery("SELECT memID,memName from manageGroup where groupID='0';");
 
@@ -299,7 +289,6 @@
 							<!-- 这里通过超链接传值特别经典! -->
 							<!-- 这样,将noticeID传到了页面 changeNotice.jsp中-->
 							<%
-								//System.out.print("所在的组:"+groupAdminID);
 							%>
 							<td>
 								<a href="/labmanagement/servlet/MoveMemIn">移入组</a>
@@ -311,7 +300,6 @@
 									session.setAttribute("groupAdminID", groupAdminID);
 
 									out.print("</tr>");
-									//	out.print("</td>");
 									//这是第二列
 								}
 
@@ -382,8 +370,6 @@
 									//创建一个jdbc申明
 									ResultSet res4 = null;
 									//现在是申明一个Result实例化,后面用来包装返回的结果
-									//		      res = stmt.executeQuery("select * from notice where id<='6'");
-									//		  	 res4=stmt4.executeQuery("SELECT * from manageproject where memID!='"+groupAdminID+"';");
 									//上面不包括组长
 									res4 = stmt4
 											.executeQuery("SELECT * from manageproject where projectID in (select projectID from projectmem where memID='"
@@ -430,12 +416,9 @@
 										href="/labmanagement/servlet/MoveProjectMemOut?projectID=<%=res4.getString(1)%>&projectMemID=<%=res4.getString(6)%>">移出</a>
 								</td>
 								<%
-									//		       session.setAttribute("projectID",res4.getString(1));
-											//		       session.setAttribute("projectMemID",res4.getString(5));
-											out.print("<tr>" + "</tr>");//ID
+										out.print("<tr>" + "</tr>");//ID
 											//输出一个空行
 
-											//			int noticeID=Integer.parseInt(res.getString(1));
 
 										}
 
@@ -543,8 +526,6 @@
 										//创建一个jdbc申明
 										ResultSet res5 = null;
 										//现在是申明一个Result实例化,后面用来包装返回的结果
-										//		      res = stmt.executeQuery("select * from notice where id<='6'");
-										//		  	res2=stmt2.executeQuery("SELECT memID,memName from manageGroup where groupID='0' or groupID='"+groupAdminID+"';");
 										res5 = stmt5
 												.executeQuery("SELECT memID,memName from managegroup where groupID=(select groupID from groupmem where memID='"
 														+ groupAdminID + "') ;");
