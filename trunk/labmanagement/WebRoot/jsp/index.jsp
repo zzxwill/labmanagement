@@ -196,7 +196,7 @@ h3 {
 								
 								
 								<!-- SiteSearch Google -->
-<form method=get action="http://www.google.com/search">
+<form method=get action="http://www.google.com/search" target="_blank">
 <table bgcolor="#FFFFFF" width="285" height="125" style=""><tr>
 	<td valign="top" bgcolor="#E6F2CC" style="width: 287px"><img width="41" height="23" border="0" src="../images/search.png" align="absbottom">搜索本站</td></tr><tr> 
 <td style="width: 287px">
@@ -207,7 +207,7 @@ h3 {
 <font size=-1>
 <input type=hidden name=domains value="YOUR DOMAIN NAME"><br>
 <input type=radio name=sitesearch value=""> Google
-<input type=radio name=sitesearch value="http://localhost:8080/labmanagement/jsp/index.jsp" checked>实验室管理系统
+<input type=radio name=sitesearch value="http://zzxwill.blog.sohu.com/" checked>实验室管理系统
 </font>
 </td></tr></table>
 <br>
@@ -310,28 +310,7 @@ h3 {
 		      //执行SQL语句
 		      
 		      stmt = (Statement) conn.createStatement();
-//		      res = stmt.executeQuery("select * from notice");
-//		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('developer','content','submitTime','deadline','rank','title')");
-//		  int number=stmt.executeUpdate("update notice set developer="+developer+",content='"+content+"',submitTime='"+strSubmitTime+"',deadline='"+strDeadline+"',rank="+rank+",title='"+title+"' where id='"+strID+"'");
 		  res=stmt.executeQuery("select * from pubinfo");
-//		      res=stmt.executeQuery("select * from labmem ");
-				  
-//		  out.print("添加的条数："+number);
-		  /*
-		   * 如果添加的条数为一，则表示成功插入了数据，因此，可以用这来判断数据库是否成功插入了数据。
-		   */
-		  
-//		  if(number==1){
-//			  out.println("恭喜您，公告更改成功！<br>");
-//			  out.println("<a href='manageNotice-jsp.jsp'>返回公告管理页面</a>");
-//		  }
-//		  else{
-//			  out.println("对不起，公告更新失败，请返回继续操作！");
-//			  out.println("<a href='changeNotice.jsp'>返回公告管理页面</a>");
-//		  }  
-		  
-//		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
-		      //处理结果集
               int[] x=new int[100]; //信息ID
               int i=0;
               String[] inTi=new String[100];//信息标题
@@ -353,15 +332,12 @@ h3 {
 		      out.print("<tr><td width=40% class=indl1 >");
 		      System.out.print(x[i]);
 		      out.print("<a href='/labmanagement/jsp/info_detail.jsp?inid="+x[i]+"'>"+inTi[i]+"</a></td>");
-		      //request.setAttribute("inid",x[i] );
-		     // out.print("</a></td>");
 		      out.print("<td width=50% align=right class=indl1 >"+inTm[i]+"</td></tr>");
 		     
 		      }
 		      
 		  
 		      res.close();
-//		      out.println("Successful!");
 
 		    }
 		    catch (Exception ex)
@@ -462,35 +438,12 @@ h3 {
 		      //执行SQL语句
 		      
 		      stmt = (Statement) conn.createStatement();
-//		      res = stmt.executeQuery("select * from notice");
-//		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('developer','content','submitTime','deadline','rank','title')");
-//		  int number=stmt.executeUpdate("update notice set developer="+developer+",content='"+content+"',submitTime='"+strSubmitTime+"',deadline='"+strDeadline+"',rank="+rank+",title='"+title+"' where id='"+strID+"'");
 		  res=stmt.executeQuery("select * from resource");
-//		      res=stmt.executeQuery("select * from labmem ");
-				  
-//		  out.print("添加的条数："+number);
-		  /*
-		   * 如果添加的条数为一，则表示成功插入了数据，因此，可以用这来判断数据库是否成功插入了数据。
-		   */
-		  
-//		  if(number==1){
-//			  out.println("恭喜您，公告更改成功！<br>");
-//			  out.println("<a href='manageNotice-jsp.jsp'>返回公告管理页面</a>");
-//		  }
-//		  else{
-//			  out.println("对不起，公告更新失败，请返回继续操作！");
-//			  out.println("<a href='changeNotice.jsp'>返回公告管理页面</a>");
-//		  }  
-		  
-//		      stmt.executeUpdate("insert into notice(developer,content,submitTime,deadline,rank,title) values('2','4','2008-11-22','2009-1-1','55','What the hell are you doing?')");
-		      //处理结果集
 				int j=0;
 		      while (res.next())
 		      {
 		      j++;
 		      if(j<=FLAG){
-//		    	out.print("<tr><td width=\"20%\" class=\"indl1\">");
-//		    	out.print("["+res.getString(3)+"]"+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
 		    %>
 		    <tr height="22">
 				<td width="70%" class="indl1">[<%=res.getString(3) %>] <a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"><%=res.getString(2) %></a></td>
@@ -500,17 +453,6 @@ h3 {
 		    	<!--  a href="http://localhost:8080/labmanagement/<%=res.getString(5)%>" target="_blank"/><%=res.getString(2) %></td><td width="30%" align="right" class="indl1"-->
 		
 		    <%}
-//		    	out.print(res.getString(3)+"</td><td width=\"50%\" align=\"right\" class=\"indl1\">");
-//				out.print(res.getString(4)+"</td><td width=\"30%\" align=\"right\" class=\"indl1\">");
-//				out.print(res.getString(4)+"</td></tr>");
-//		        request.setAttribute("memID",   memID);   
-//		        getServletContext().getRequestDispatcher("/jsp/test.jsp").forward(request,   response); 
-//		        response.sendRedirect("http://localhost:8080/labmanagement/jsp/test.jsp") ;
-
-		        
-//		        out.println(res.getString(2));
-//		        out.println(res.getString(3));
-//		        out.println("恭喜您，公告更改成功！<br>");
 		      }
 		      
 		  

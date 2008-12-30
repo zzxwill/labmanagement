@@ -31,7 +31,7 @@
 	  int number=stmt.executeUpdate("insert into project(projectName,projectCon,projectPub,deadline) values('"+projectName+"','"+projectCon+"','"+projectPub+"','"+deadline+"')");
 	  //age在数据库中的表现是int,但是,在这里, '"+age+"' 或"+age+"都行
 	  
-//	  out.print("添加的条数："+number);
+
 	  /*
 	   * 如果添加的条数为一，则表示成功插入了数据，因此，可以用这来判断数据库是否成功插入了数据。
 	   */
@@ -45,7 +45,7 @@
 		   out.println("<a href='/labmanagement/jsp/groupAdmin.jsp'>返回</a>");
 	  }
 	  
-//	      res.close();
+
 
 	    }
 	    catch (Exception ex)
