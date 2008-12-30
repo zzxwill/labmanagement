@@ -302,7 +302,7 @@
 								//System.out.print("所在的组:"+groupAdminID);
 							%>
 							<td>
-								<a href="/labmanagement/servlet/MoveMemIn">移入组<%=res2.getString(1)%></a>
+								<a href="/labmanagement/servlet/MoveMemIn">移入组</a>
 							</td>
 							<!--groupAdminID是组用户的ID.  -->
 
@@ -422,7 +422,7 @@
 											}
 
 											deadline = res4.getString(4);
-											out.print("<td width=\"20%\">" + res4.getString(7)
+											out.print("<td width=\"20%\">" + res4.getString(6)
 													+ "</td>");//ID
 								%>
 								<td>
